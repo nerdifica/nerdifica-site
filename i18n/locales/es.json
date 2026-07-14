@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "blog": "Blog"
+  },
+  "niche": {
+    "tools": "Herramientas",
+    "articles": "Artículos"
+  },
+  "tool": {
+    "howToUse": "Cómo usar",
+    "faq": "Preguntas frecuentes"
+  }
+}
