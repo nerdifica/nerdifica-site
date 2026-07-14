@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Primary — sampled directly from the nerdifica logo (#005DFE) */
+  --color-primary-50: #f2f7ff;
+  --color-primary-100: #e6efff;
+  --color-primary-200: #bfd6ff;
+  --color-primary-300: #94bbff;
+  --color-primary-400: #5291fe;
+  --color-primary-500: #005dfe;
+  --color-primary-600: #0052e0;
+  --color-primary-700: #0043b7;
+  --color-primary-800: #00338c;
+  --color-primary-900: #002361;
+  --color-primary-950: #001438;
+
+  /* Ink — sampled from the logo's "fica" wordmark (#111111) */
+  --color-ink-950: #111111;
+  --color-ink-700: #3a3f4b;
+  --color-ink-400: #8a8f99;
+
+  --color-border: #e4e4e7;
+  --color-surface: #ffffff;
+  --color-bg: #fafafa;
+
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-error: #dc2626;
+
+  --radius-card: 1.25rem;
+  --radius-control: 0.75rem;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink-950);
+  font-family: var(--font-sans);
+}
