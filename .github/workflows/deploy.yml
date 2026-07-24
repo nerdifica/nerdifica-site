@@ -59,8 +59,9 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          command_timeout: 5m
           script: |
             cd ${{ secrets.INFRA_DIR }}
-            sudo docker compose pull site
-            sudo docker compose up -d --no-deps site
-            sudo docker image prune -f
+            sudo -n docker compose pull site
+            sudo -n docker compose up -d --no-deps site
+            sudo -n docker image prune -f
