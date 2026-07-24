@@ -66,7 +66,7 @@ export function useDataGenerator() {
   const rows = ref<Record<FieldId, string>[]>([])
 
   function generate() {
-    const count = Math.min(Math.max(quantity.value, 1), 50)
+    const count = Math.min(Math.max(quantity.value, 1), 10)
     const fields = FIELDS.filter((field) => selectedFields.value.includes(field.id))
 
     rows.value = Array.from({ length: count }, () => {

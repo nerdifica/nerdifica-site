@@ -6,7 +6,7 @@ const { quantity, selectedFields, rows, generate } = useDataGenerator()
 const clampedQuantity = computed({
   get: () => quantity.value,
   set: (value: number) => {
-    quantity.value = Math.min(Math.max(value || 1, 1), 50)
+    quantity.value = Math.min(Math.max(value || 1, 1), 10)
   },
 })
 
@@ -51,7 +51,7 @@ generate()
           v-model.number="clampedQuantity"
           type="number"
           min="1"
-          max="50"
+          max="10"
           class="mt-1 block w-28 rounded-control border border-border px-3 py-2 text-ink-950 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-100"
         />
       </label>
