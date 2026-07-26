@@ -23,8 +23,37 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
 
-  build-and-push:
+  seo-quality:
     needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          NUXT_PUBLIC_API_BASE: ${{ vars.NUXT_PUBLIC_API_BASE }}
+          NUXT_PUBLIC_ADSENSE_ID: ${{ vars.NUXT_PUBLIC_ADSENSE_ID }}
+      - name: Run SEO quality audit
+        env:
+          NUXT_PUBLIC_ADSENSE_ID: ${{ vars.NUXT_PUBLIC_ADSENSE_ID }}
+        run: |
+          node .output/server/index.mjs &
+          SERVER_PID=$!
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000/pt-br > /dev/null && break
+            sleep 1
+          done
+          node scripts/seo-audit.mjs
+          AUDIT_EXIT=$?
+          kill $SERVER_PID
+          exit $AUDIT_EXIT
+
+  build-and-push:
+    needs: seo-quality
     runs-on: ubuntu-latest
     permissions:
       contents: read
