@@ -1,8 +1,17 @@
 <script setup lang="ts">
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const { getAllNiches } = useNiches()
+const route = useRoute()
 
 const niches = getAllNiches()
+const isMenuOpen = ref(false)
+
+watch(
+  () => route.fullPath,
+  () => {
+    isMenuOpen.value = false
+  }
+)
 </script>
 
 <template>
@@ -25,6 +34,32 @@ const niches = getAllNiches()
           {{ niche.name[locale] }}
         </NuxtLink>
       </nav>
+
+      <button
+        type="button"
+        class="flex h-10 w-10 items-center justify-center rounded-control text-ink-950 md:hidden"
+        :aria-expanded="isMenuOpen"
+        :aria-label="t('nav.menuLabel')"
+        aria-controls="mobile-nav"
+        @click="isMenuOpen = !isMenuOpen"
+      >
+        <Icon :name="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" class="h-6 w-6" />
+      </button>
     </div>
+
+    <nav
+      v-if="isMenuOpen"
+      id="mobile-nav"
+      class="flex flex-col gap-1 border-t border-border px-6 py-4 font-medium text-ink-700 md:hidden"
+    >
+      <NuxtLink
+        v-for="niche in niches"
+        :key="niche.id"
+        :to="`/${locale}/${niche.slug[locale]}`"
+        class="rounded-control px-2 py-2 transition-colors hover:bg-primary-50 hover:text-primary-600"
+      >
+        {{ niche.name[locale] }}
+      </NuxtLink>
+    </nav>
   </header>
 </template>

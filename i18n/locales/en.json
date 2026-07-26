@@ -1,11 +1,20 @@
 {
   "nav": {
     "home": "Home",
-    "blog": "Blog"
+    "blog": "Blog",
+    "menuLabel": "Menu"
   },
   "niche": {
     "tools": "Tools",
     "articles": "Articles"
+  },
+  "home": {
+    "subheadline": "Articles, mini-games, tools and much more",
+    "popularTools": "Popular tools",
+    "latestArticles": "Latest articles"
+  },
+  "footer": {
+    "explore": "Explore"
   },
   "tool": {
     "howToUse": "How to use",

@@ -51,7 +51,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/seo'],
+  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/seo', '@nuxt/icon'],
 
   css: ['~/assets/css/main.css'],
   vite: {
