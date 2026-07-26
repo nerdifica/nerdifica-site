@@ -45,7 +45,9 @@ async function main() {
     return status === 200 && body.includes('Sitemap:') && !/Disallow:\s*\/\s*$/m.test(body)
   })
 
-  await check('ads.txt válido', true, async () => {
+  // Bônus por enquanto: NUXT_PUBLIC_ADSENSE_ID ainda não tem um publisher ID real
+  // (conta AdSense não aprovada ainda). Promover pra essencial quando tiver.
+  await check('ads.txt válido', false, async () => {
     const { status, body } = await fetchText('/ads.txt')
     return status === 200 && /^google\.com,\s*pub-/.test(body.trim())
   })
@@ -79,7 +81,8 @@ async function main() {
     )
   })
 
-  await check('Script do AdSense presente (quando publisher ID configurado)', true, () => {
+  // Bônus pelo mesmo motivo do ads.txt acima.
+  await check('Script do AdSense presente (quando publisher ID configurado)', false, () => {
     if (!HAS_ADSENSE) return true
     return nicheHtml.includes('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
   })
