@@ -10,5 +10,10 @@
   "tool": {
     "howToUse": "Cómo usar",
     "faq": "Preguntas frecuentes"
+  },
+  "error": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o fue movida.",
+    "backHome": "Volver al inicio"
   }
 }

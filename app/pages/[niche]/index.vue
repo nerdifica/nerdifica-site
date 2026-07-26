@@ -9,6 +9,18 @@ if (!niche) {
 }
 
 const tools = getToolsByNiche(niche.id)
+
+const setI18nParams = useSetI18nParams()
+setI18nParams({
+  'pt-br': { niche: niche.slug['pt-br'] },
+  es: { niche: niche.slug.es },
+  en: { niche: niche.slug.en },
+})
+
+useSeoMeta({
+  title: niche.name[locale.value],
+  description: niche.description[locale.value],
+})
 </script>
 
 <template>
@@ -34,5 +46,7 @@ const tools = getToolsByNiche(niche.id)
         <p class="mt-2 text-sm text-ink-700">{{ tool.description[locale] }}</p>
       </NuxtLink>
     </div>
+
+    <AdSlot ad-slot="niche-bottom" class="mt-12" />
   </main>
 </template>

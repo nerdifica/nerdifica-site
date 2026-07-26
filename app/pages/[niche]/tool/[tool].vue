@@ -15,6 +15,13 @@ if (!tool) {
 
 const ToolComponent = defineAsyncComponent(tool.component as never)
 
+const setI18nParams = useSetI18nParams()
+setI18nParams({
+  'pt-br': { niche: niche.slug['pt-br'], tool: tool.slug['pt-br'] },
+  es: { niche: niche.slug.es, tool: tool.slug.es },
+  en: { niche: niche.slug.en, tool: tool.slug.en },
+})
+
 useSeoMeta({
   title: tool.name[locale.value],
   description: tool.description[locale.value],

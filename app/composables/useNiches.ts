@@ -18,6 +18,10 @@ export function useNiches() {
     return niches
   }
 
+  function getAllTools() {
+    return tools
+  }
+
   function getNicheBySlug(locale: Locale, slug: string) {
     return niches.find((niche) => niche.slug[locale] === slug)
   }
@@ -30,5 +34,5 @@ export function useNiches() {
     return tools.find((tool) => tool.nicheId === nicheId && tool.slug[locale] === slug)
   }
 
-  return { getAllNiches, getNicheBySlug, getToolsByNiche, getToolBySlug }
+  return { getAllNiches, getAllTools, getNicheBySlug, getToolsByNiche, getToolBySlug }
 }

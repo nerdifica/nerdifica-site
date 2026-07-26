@@ -10,5 +10,10 @@
   "tool": {
     "howToUse": "How to use",
     "faq": "Frequently asked questions"
+  },
+  "error": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or was moved.",
+    "backHome": "Back to home"
   }
 }
