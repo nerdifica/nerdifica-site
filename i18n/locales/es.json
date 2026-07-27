@@ -2,7 +2,8 @@
   "nav": {
     "home": "Inicio",
     "blog": "Blog",
-    "menuLabel": "Menú"
+    "menuLabel": "Menú",
+    "themeToggle": "Cambiar tema"
   },
   "niche": {
     "tools": "Herramientas",

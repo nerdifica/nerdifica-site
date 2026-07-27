@@ -65,10 +65,10 @@ useSchemaOrg([
         v-for="niche in niches"
         :key="niche.id"
         :to="`/${locale}/${niche.slug[locale]}`"
-        class="group rounded-card border border-border bg-surface p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(0,93,254,0.10)]"
+        class="group rounded-card border border-border bg-surface p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(0,93,254,0.10)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_4px_20px_rgba(0,93,254,0.18)]"
       >
         <Icon :name="niche.icon" class="h-6 w-6 text-primary-500" />
-        <h2 class="font-display mt-3 text-lg font-semibold text-ink-950 group-hover:text-primary-600">
+        <h2 class="font-display mt-3 text-lg font-semibold text-ink-950 group-hover:text-primary-600 dark:group-hover:text-primary-400">
           {{ niche.name[locale] }}
         </h2>
         <p class="mt-2 text-sm text-ink-700">{{ niche.description[locale] }}</p>
@@ -84,10 +84,10 @@ useSchemaOrg([
           v-for="{ tool, niche } in featuredTools"
           :key="tool.id"
           :to="`/${locale}/${niche.slug[locale]}/tool/${tool.slug[locale]}`"
-          class="group rounded-card border border-border bg-surface p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(0,93,254,0.10)]"
+          class="group rounded-card border border-border bg-surface p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(0,93,254,0.10)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_4px_20px_rgba(0,93,254,0.18)]"
         >
           <Icon :name="niche.icon" class="h-6 w-6 text-primary-500" />
-          <h3 class="font-display mt-3 font-semibold text-ink-950 group-hover:text-primary-600">
+          <h3 class="font-display mt-3 font-semibold text-ink-950 group-hover:text-primary-600 dark:group-hover:text-primary-400">
             {{ tool.name[locale] }}
           </h3>
           <p class="mt-2 text-sm text-ink-700">{{ tool.description[locale] }}</p>

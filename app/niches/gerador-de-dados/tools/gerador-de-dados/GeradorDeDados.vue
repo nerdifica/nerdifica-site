@@ -68,7 +68,11 @@ generate()
     <div class="mt-8">
       <div class="flex items-center justify-between">
         <h3 class="font-display font-semibold text-ink-950">Resultado</h3>
-        <button type="button" class="text-sm text-primary-600 hover:underline" @click="copyAll">
+        <button
+          type="button"
+          class="text-sm text-primary-600 hover:underline dark:text-primary-400"
+          @click="copyAll"
+        >
           {{ copied ? 'Copiado!' : 'Copiar tudo' }}
         </button>
       </div>

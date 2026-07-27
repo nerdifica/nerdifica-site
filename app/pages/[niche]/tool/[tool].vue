@@ -35,7 +35,7 @@ useSeoMeta({
     </h1>
     <p class="mt-3 text-ink-700">{{ tool.description[locale] }}</p>
 
-    <div class="mt-8 rounded-card border border-border bg-surface p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+    <div class="mt-8 rounded-card border border-border bg-surface p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
       <ClientOnly>
         <component :is="ToolComponent" />
       </ClientOnly>

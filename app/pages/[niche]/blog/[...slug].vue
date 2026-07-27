@@ -31,7 +31,7 @@ useSeoMeta({
     <h1 class="font-display text-3xl font-bold text-ink-950 md:text-4xl">{{ article.title }}</h1>
     <ContentRenderer
       :value="article"
-      class="prose prose-neutral mt-8 max-w-none prose-headings:font-display prose-a:text-primary-700 prose-a:no-underline hover:prose-a:underline"
+      class="prose prose-neutral mt-8 max-w-none prose-headings:font-display prose-a:text-primary-700 prose-a:no-underline hover:prose-a:underline dark:prose-invert dark:prose-a:text-primary-300"
     />
 
     <ToolFaq class="mt-12" :faq="article.faq ?? []" />
