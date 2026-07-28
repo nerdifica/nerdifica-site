@@ -42,24 +42,37 @@ function toggleTheme() {
 
         <button
           type="button"
-          class="flex h-10 w-10 items-center justify-center rounded-control text-ink-950 hover:bg-primary-50 dark:hover:bg-white/5"
+          class="flex h-10 w-10 items-center justify-center rounded-control text-ink-950 hover:bg-primary-50 dark:text-white dark:hover:bg-white/5"
           :aria-label="t('nav.themeToggle')"
           @click="toggleTheme"
         >
-          <Icon :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'" class="h-6 w-6" />
+          <Icon v-if="!colorMode.unknown" :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'" class="h-6 w-6" />
+          <span v-else class="block h-6 w-6" />
         </button>
       </nav>
 
-      <button
-        type="button"
-        class="flex h-10 w-10 items-center justify-center rounded-control text-ink-950 md:hidden"
-        :aria-expanded="isMenuOpen"
-        :aria-label="t('nav.menuLabel')"
-        aria-controls="mobile-nav"
-        @click="isMenuOpen = !isMenuOpen"
-      >
-        <Icon :name="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" class="h-6 w-6" />
-      </button>
+      <div class="flex items-center gap-2 md:hidden">
+        <button
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-control text-ink-950 hover:bg-primary-50 dark:text-white dark:hover:bg-white/5"
+          :aria-label="t('nav.themeToggle')"
+          @click="toggleTheme"
+        >
+          <Icon v-if="!colorMode.unknown" :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'" class="h-6 w-6" />
+          <span v-else class="block h-6 w-6" />
+        </button>
+
+        <button
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-control text-ink-950 dark:text-white"
+          :aria-expanded="isMenuOpen"
+          :aria-label="t('nav.menuLabel')"
+          aria-controls="mobile-nav"
+          @click="isMenuOpen = !isMenuOpen"
+        >
+          <Icon :name="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" class="h-6 w-6" />
+        </button>
+      </div>
     </div>
 
     <nav
@@ -75,15 +88,6 @@ function toggleTheme() {
       >
         {{ niche.name[locale] }}
       </NuxtLink>
-
-      <button
-        type="button"
-        class="flex h-10 w-10 items-center justify-center rounded-control text-ink-700 transition-colors hover:bg-primary-50 hover:text-primary-600 dark:hover:text-primary-400"
-        :aria-label="t('nav.themeToggle')"
-        @click="toggleTheme"
-      >
-        <Icon :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'" class="h-5 w-5" />
-      </button>
     </nav>
   </header>
 </template>
