@@ -8,6 +8,11 @@ const niches = getAllNiches()
 const isMenuOpen = ref(false)
 const isDark = computed(() => colorMode.value === 'dark')
 
+const isMounted = ref(false)
+onMounted(() => {
+  isMounted.value = true
+})
+
 watch(
   () => route.fullPath,
   () => {
@@ -47,7 +52,7 @@ function toggleTheme() {
           :aria-label="t('nav.themeToggle')"
           @click="toggleTheme"
         >
-          <Icon v-if="!colorMode.unknown" :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'" class="h-6 w-6" />
+          <Icon v-if="isMounted" :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'" class="h-6 w-6" />
           <span v-else class="block h-6 w-6" />
         </button>
       </nav>
@@ -59,7 +64,7 @@ function toggleTheme() {
           :aria-label="t('nav.themeToggle')"
           @click="toggleTheme"
         >
-          <Icon v-if="!colorMode.unknown" :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'" class="h-6 w-6" />
+          <Icon v-if="isMounted" :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'" class="h-6 w-6" />
           <span v-else class="block h-6 w-6" />
         </button>
 
