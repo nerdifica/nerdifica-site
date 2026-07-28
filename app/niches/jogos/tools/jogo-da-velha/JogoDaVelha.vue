@@ -8,11 +8,11 @@ const { board, currentPlayer, winner, winningLine, isDraw, play, reset } = useTi
   <div class="flex flex-col items-center gap-6">
     <p class="text-sm font-medium text-ink-700">
       <template v-if="winner">
-        Vitória de <strong class="text-primary-700">{{ winner }}</strong>!
+        Vitória de <strong class="text-primary-700 dark:text-primary-400">{{ winner }}</strong>!
       </template>
       <template v-else-if="isDraw"> Empate! </template>
       <template v-else>
-        Vez de <strong class="text-primary-700">{{ currentPlayer }}</strong>
+        Vez de <strong class="text-primary-700 dark:text-primary-400">{{ currentPlayer }}</strong>
       </template>
     </p>
 
@@ -21,8 +21,8 @@ const { board, currentPlayer, winner, winningLine, isDraw, play, reset } = useTi
         v-for="(cell, index) in board"
         :key="index"
         type="button"
-        class="flex h-20 w-20 items-center justify-center rounded-control border border-border bg-surface font-display text-3xl font-bold text-ink-950 transition-colors hover:bg-primary-50 disabled:hover:bg-surface"
-        :class="{ 'bg-primary-50 text-primary-700': winningLine?.includes(index) }"
+        class="flex h-20 w-20 items-center justify-center rounded-control border border-border bg-surface font-display text-3xl font-bold text-ink-950 transition-colors hover:bg-primary-50 dark:hover:bg-white/5 disabled:hover:bg-surface"
+        :class="{ 'bg-primary-50 text-primary-700 dark:bg-white/5 dark:text-primary-400': winningLine?.includes(index) }"
         :disabled="!!cell || !!winner"
         @click="play(index)"
       >

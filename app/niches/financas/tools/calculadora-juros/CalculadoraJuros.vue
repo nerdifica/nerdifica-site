@@ -35,14 +35,14 @@ const { principal, rate, periods, result, interestEarned } = useCompoundInterest
       />
     </label>
 
-    <div class="col-span-full mt-2 rounded-control bg-primary-50 p-5">
+    <div class="col-span-full mt-2 rounded-control border border-border bg-surface p-5">
       <p class="text-sm text-ink-700">
         Montante final:
-        <strong class="font-mono text-lg text-primary-700">{{ result.toFixed(2) }}</strong>
+        <strong class="font-mono text-lg text-primary-700 dark:text-primary-400">{{ result.toFixed(2) }}</strong>
       </p>
       <p class="mt-1 text-sm text-ink-700">
         Juros acumulados:
-        <strong class="font-mono text-lg text-primary-700">{{ interestEarned.toFixed(2) }}</strong>
+        <strong class="font-mono text-lg text-primary-700 dark:text-primary-400">{{ interestEarned.toFixed(2) }}</strong>
       </p>
     </div>
   </div>
