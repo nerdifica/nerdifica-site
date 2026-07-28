@@ -24,7 +24,8 @@ function toggleTheme() {
   <header class="border-b border-border bg-surface">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
       <NuxtLink :to="`/${locale}`" class="flex items-center gap-2">
-        <img src="/brand/logo-mark.png" alt="Nerdifica" class="h-9 w-auto" />
+        <img src="/brand/logo-mark.png" alt="Nerdifica" class="h-9 w-auto dark:hidden" />
+        <img src="/brand/logo-mark-dark.png" alt="Nerdifica" class="hidden h-9 w-auto dark:block" />
         <span class="font-display text-xl font-bold">
           <span class="text-primary-500">nerdi</span><span class="text-ink-950">fica</span>
         </span>
